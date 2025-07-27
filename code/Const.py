@@ -1,4 +1,6 @@
 # C
+import pygame
+
 COLOR_ORANGE = (255, 128, 0)
 COLOR_YELLOW = (255, 255, 128)
 COLOR_WHITE = (255, 255, 255)
@@ -6,6 +8,8 @@ COLOR_GREEN = (0, 128, 0)
 COLOR_CYAN = (0, 128, 128)
 
 # E
+
+EVENT_TIMEOUT = pygame.USEREVENT + 2
 ENTITY_SPEED = {
     'Level1Bg0': 0,
     'Level1Bg1': 1,
