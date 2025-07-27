@@ -8,7 +8,8 @@ from code.Player import Player
 
 class EntityFactory:
 
-    def get_entity(entity_name: str, position=(0, 0)):
+    @staticmethod
+    def get_entity(entity_name: str):
         match entity_name:
             case 'Level1Bg':
                 list_bg = []
