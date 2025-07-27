@@ -38,16 +38,16 @@ class EntityMediator:
                     entity.score += enemy.score
 
     @staticmethod
-    def __verify_collision_window(ent: Entity):
-        if isinstance(ent, Enemy):
-            if ent.rect.right <= 0:
-                ent.health = 0
-        if isinstance(ent, PlayerShot):
-            if ent.rect.left >= WIN_WIDTH:
-                ent.health = 0
-        if isinstance(ent, EnemyShot):
-            if ent.rect.right <= 0:
-                ent.health = 0
+    def __verify_collision_window(entity: Entity):
+        if isinstance(entity, Enemy):
+            if entity.rect.right <= 0:
+                entity.health = 0
+        if isinstance(entity, PlayerShot):
+            if entity.rect.left >= WIN_WIDTH:
+                entity.health = 0
+        if isinstance(entity, EnemyShot):
+            if entity.rect.right <= 0:
+                entity.health = 0
 
     @staticmethod
     def verify_health(entity_list: list[Entity]):
