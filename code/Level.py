@@ -5,10 +5,12 @@ from pygame.font import Font
 from pygame.rect import Rect
 from pygame.surface import Surface
 
+from code.Enemy import Enemy
 from code.EntityMediator import EntityMediator
 from code.Const import COLOR_WHITE, WIN_HEIGHT, EVENT_ENEMY, SPAWN_ENEMY
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.Player import Player
 
 
 class Level:
@@ -18,7 +20,7 @@ class Level:
         self.entity_list: list[Entity] = []
         self.entity_list.extend(EntityFactory.get_entity('Level1Bg'))
         self.entity_list.append(EntityFactory.get_entity('Player'))
-        self.timeout = 20000 # 20 seconds
+        self.timeout = 20000  # 20 seconds
         pygame.time.set_timer(EVENT_ENEMY, SPAWN_ENEMY)
 
     def run(self):
@@ -31,6 +33,10 @@ class Level:
             for entity in self.entity_list:
                 self.window.blit(source=entity.surf, dest=entity.rect)
                 entity.move()
+                if isinstance(entity, (Player, Enemy)):
+                    shoot = entity.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
