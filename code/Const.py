@@ -17,13 +17,15 @@ ENTITY_SPEED = {
     'Level1Bg3': 3,
     'Level1Bg4': 4,
     'Level1Bg5': 5,
-    'Level1Bg6': 6
+    'Level1Bg6': 6,
+    'Player': 3
 }
 
 # M
 MENU_OPTION = ('NEW GAME',
                'SCORE',
                'EXIT')
+
 
 # W
 WIN_WIDTH = 576
